@@ -1,0 +1,76 @@
+﻿@{ ViewBag.Title = "QR Code Reader"; }
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/QRCode.js"></script>
+@using (Html.BeginForm(null, null, new { @id = string.Empty }, FormMethod.Post,
+    new { @id = "HomeForm" }))
+{
+    <div>
+        <br />  <br />
+        <table border="0" style="border-style:double" cellpadding="5" cellspacing="5" >
+            <tr>
+                <td style="vertical-align:top" >
+                    <b>Upload file : </b>
+                    <input type="file" value="" id="txtUploadImage" placeholder="Choose File">
+                    <label id="lblErrorMsg" style="color:red"></label>
+                </td>
+               
+            </tr>
+        </table>
+        <br />  <br />
+    </div>
+
+    <div id="divQRCodeimage" style="display:none">      
+        <td id="tdQRcode" >
+            <b>Following image has been uploaded : </b>
+            <br />
+            <img id="imgQRCode" name="QRCode" height="100" width="100" />
+        </td>
+    </div>
+
+    <div id="divQRCode">
+        <table border="1" width="300px">
+            <tr>
+                <td colspan="2" align="center" style="background-color:lightgreen"><b>Below is the Api Response</b></td>
+            </tr>
+            <tr>
+                <td style="background-color:lightgreen">
+                    <b>Type</b>
+                </td>
+                <td><label id="lblType"></label></td>
+            </tr>
+            <tr>
+                <td style="background-color:lightgreen">
+                    <b>Symbol</b>
+                </td>
+                <td>
+                    <table border="1" cellpadding="2" cellspacing="2" style="border-style:none" width="100%">
+                        <tr>
+                            <td width="100px">
+                                <b>Seq : </b>
+                            </td>
+                            <td>
+                                <label id="lblSeq"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100px">
+                                <b>Data: </b>
+                            </td>
+                            <td>
+                                <label id="lblData"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100px">
+                                <b>Error: </b>
+                            </td>
+                            <td>
+                                <label id="lblError"></label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
